@@ -15,6 +15,12 @@
 
 html {
     scroll-behavior: smooth;
+    /* Prevent horizontal scroll on mobile */
+    overflow-x: hidden;
+    /* Better text rendering on mobile */
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 body {
@@ -36,6 +42,10 @@ body {
     color: #eaf6fb;
     line-height: 1.6;
     font-size: 18px; /* Increased by 1pt (was ~16px) */
+    /* Prevent horizontal scroll */
+    overflow-x: hidden;
+    /* Better touch scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
 }
 
 .app-container {
@@ -89,10 +99,11 @@ body {
     background: #18223a;
     border-radius: 8px;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    height: calc(100vh - 200px);
+    overflow: auto;
+    max-height: calc(100vh - 200px);
     display: flex;
     flex-direction: column;
+    min-height: 500px;
 }
 
 .tei-viewer-container > .controls-panel {
@@ -115,7 +126,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2.3rem 1.5rem;
+    padding: 1.5rem 1rem;
     background-color: #18223a;
     border-top: 2px solid #22304a;
     flex-wrap: wrap;
@@ -139,6 +150,9 @@ body {
     font-weight: 500;
     font-size: 0.95rem;
     transition: all 0.3s ease;
+    /* Better touch targets */
+    min-height: 44px;
+    -webkit-tap-highlight-color: rgba(58, 141, 222, 0.3);
 }
 
 .view-toggles button:hover,
@@ -179,7 +193,7 @@ body {
     border-bottom: 2px solid #22304a;
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     flex-wrap: wrap;
 }
 
@@ -206,7 +220,8 @@ body {
     color: #eaf6fb;
     font-size: 0.95rem;
     cursor: pointer;
-    min-width: 250px;
+    min-width: 200px;
+    max-width: 100%;
 }
 
 .project-selector select:hover,
@@ -226,12 +241,14 @@ body {
    ============================================ */
 
 .viewer-content {
-    display: flex;
-    flex: 1;
+    display: grid;
+    grid-template-columns: var(--image-panel-width, 45%) 8px 1fr;
+    flex: 1 1 auto;
     overflow: hidden;
-    gap: 1rem;
+    gap: 0;
     padding: 1rem;
     min-height: 0;
+    height: calc(100vh - 200px);
     background: #101624;
 }
 
@@ -240,7 +257,7 @@ body {
    ============================================ */
 
 .image-panel {
-    flex: 1;
+    grid-column: 1;
     background-color: #18223a;
     border: 2px solid #22304a;
     border-radius: 8px;
@@ -249,7 +266,10 @@ body {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    min-width: 0;
+    min-width: 250px;
+    min-height: 400px;
+    max-height: 100%;
+    flex-grow: 1; /* Ensure the panel grows with the container */
 }
 
 .image-container {
@@ -260,6 +280,10 @@ body {
     cursor: grab;
     display: block;
     background: #18223a;
+    /* Better touch handling */
+    touch-action: pan-x pan-y;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .image-container > div {
@@ -280,8 +304,8 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin: auto;
-    max-width: none;
-    max-height: none;
+    max-width: 100%; /* Ensure the image scales within the container */
+    max-height: 100%; /* Ensure the image scales within the container */
     pointer-events: none;
     user-select: none;
 }
@@ -298,26 +322,73 @@ body {
    TEXT PANELS
    ============================================ */
 
+/* Resize handle/splitter */
+.splitter {
+    grid-column: 2;
+    background: linear-gradient(
+        90deg,
+        #22304a 0%,
+        #3a8dde 45%,
+        #3a8dde 55%,
+        #22304a 100%
+    );
+    cursor: col-resize;
+    position: relative;
+    border-radius: 2px;
+    transition: background 0.2s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: none; /* Prevent default touch behavior during drag */
+    width: 10px; /* Increase width for better usability */
+}
+
+.splitter:hover {
+    background: #4fc3f7;
+    box-shadow: 0 0 5px rgba(79, 195, 247, 0.5); /* Add visual feedback */
+}
+
+.splitter-handle {
+    color: #eaf6fb;
+    font-size: 14px;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.splitter-handle::before {
+    content: "⋮⋮";
+    letter-spacing: -2px;
+}
+
+.splitter:active {
+    background: #2196f3;
+    cursor: col-resize;
+}
+
 .text-panels {
-    flex: 1;
+    grid-column: 3;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    overflow: hidden;
-    min-width: 0;
+    overflow: auto;
+    min-width: 250px;
+    min-height: 400px;
+    max-height: 100%;
     background: #18223a;
 }
 
 .text-panel {
-    flex: 1;
+    flex: 1 1 auto;
     background-color: #22304a;
     border: 2px solid #3a8dde;
     border-radius: 8px;
     padding: 1rem;
-    overflow: hidden;
+    overflow: auto;
     display: flex;
     flex-direction: column;
-    min-height: 0;
+    min-height: 200px;
 }
 
 .text-panel h3 {
@@ -332,11 +403,14 @@ body {
     flex: 1;
     overflow-y: auto;
     padding-right: 0.5rem;
+    /* Better scrolling on mobile */
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
 }
 
 /* Custom scrollbar */
 .text-content::-webkit-scrollbar {
-    width: 8px;
+    width: 12px;
 }
 
 .text-content::-webkit-scrollbar-track {
@@ -346,11 +420,12 @@ body {
 
 .text-content::-webkit-scrollbar-thumb {
     background: #667eea;
-    border-radius: 4px;
+    border-radius: 6px;
 }
 
 .text-content::-webkit-scrollbar-thumb:hover {
     background: #5568d3;
+    border-radius: 6px;
 }
 
 /* ============================================
@@ -1048,13 +1123,37 @@ body {
    RESPONSIVE DESIGN
    ============================================ */
 
+/* Tablet and below */
 @media (max-width: 1200px) {
     .viewer-content {
+        display: flex;
         flex-direction: column;
+        gap: 1rem;
+        overflow-y: auto;
     }
 
     .image-panel {
-        height: 50vh;
+        grid-column: auto;
+    }
+
+    .text-panels {
+        grid-column: auto;
+    }
+
+    .viewer-content > .image-panel + * {
+        display: none;
+    }
+
+    .image-panel {
+        flex: 0 0 auto;
+        height: 40vh;
+        min-height: 300px;
+        max-height: 50vh;
+    }
+
+    .text-panels {
+        flex: 1 1 auto;
+        min-height: 300px;
     }
 
     .metadata-panel {
@@ -1063,50 +1162,348 @@ body {
         max-width: 100%;
         margin-top: 1rem;
     }
+
+    .controls-panel {
+        padding: 1rem;
+        gap: 0.75rem;
+    }
+
+    .selectors-container {
+        gap: 0.75rem;
+        padding: 0.75rem;
+    }
 }
 
+/* Small tablets */
+@media (max-width: 900px) {
+    .app-main {
+        padding: 0.5rem;
+    }
+
+    .tei-viewer-container {
+        max-height: calc(100vh - 150px);
+    }
+
+    .app-header {
+        padding: 1rem 1.5rem;
+    }
+
+    .app-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .viewer-content {
+        padding: 0.75rem;
+        gap: 0.75rem;
+    }
+
+    .image-panel {
+        flex: 0 0 auto;
+        height: 35vh;
+        min-height: 250px;
+        max-height: 45vh;
+    }
+
+    .selectors-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .project-selector,
+    .page-selector {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+
+    .project-selector select,
+    .page-selector select {
+        width: 100%;
+        min-width: 100%;
+    }
+}
+
+/* Mobile devices */
 @media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    .app-main {
+        padding: 0.25rem;
+    }
+
+    .tei-viewer-container {
+        max-height: calc(100vh - 120px);
+        border-radius: 4px;
+    }
+
+    .app-header {
+        padding: 0.75rem 1rem;
+    }
+
     .app-header h1 {
         font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .app-header .subtitle {
+        font-size: 0.85rem;
+    }
+
+    .app-footer {
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .viewer-content {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+        gap: 0.5rem;
+        height: calc(100vh - 180px);
+    }
+
+    .splitter {
+        display: none;
+    }
+
+    .image-panel {
+        flex: 0 0 auto;
+        height: 35vh;
+        min-height: 250px;
+        max-height: 45vh;
+        width: 100%;
+        order: 1;
+    }
+
+    .text-panels {
+        gap: 0.5rem;
+        flex: 1 1 auto;
+        order: 2;
+        overflow: auto;
+        width: 100%;
+        grid-column: unset;
+    }
+
+    .text-panel {
+        padding: 0.75rem;
+    }
+
+    .text-panel h3 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
     }
 
     .controls-panel {
         flex-direction: column;
         align-items: stretch;
-    }
-
-    .legend-panel {
-        padding: 1rem;
-        margin: 0.75rem 0.5rem;
-    }
-
-    .legend-items {
-        grid-template-columns: 1fr;
+        padding: 0.75rem;
         gap: 0.75rem;
-    }
-
-    .legend-swatch {
-        min-width: 38px;
-        height: 28px;
     }
 
     .view-toggles,
     .image-controls {
         width: 100%;
         justify-content: center;
+        flex-wrap: wrap;
     }
 
-    .text-panels {
+    .view-toggles button,
+    .image-controls button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        flex: 1 1 auto;
+        min-width: 80px;
+    }
+
+    .zoom-level {
+        min-width: 60px;
+        font-size: 0.9rem;
+    }
+
+    .legend-panel {
+        padding: 0.75rem;
+        margin: 0.5rem;
+    }
+
+    .legend-panel h3 {
+        font-size: 1rem;
+    }
+
+    .legend-items {
+        grid-template-columns: 1fr;
         gap: 0.5rem;
+    }
+
+    .legend-swatch {
+        min-width: 32px;
+        height: 24px;
+    }
+
+    .legend-label {
+        font-size: 0.85rem;
     }
 
     .line {
         flex-direction: column;
-        gap: 0.3rem;
+        gap: 0.25rem;
+        padding: 0.5rem;
     }
 
     .line-number {
         margin-right: 0;
+        font-size: 0.8rem;
+    }
+
+    .line-content {
+        font-size: 0.95rem;
+    }
+
+    .page-navigator {
+        padding: 0.5rem;
+        gap: 0.5rem;
+    }
+
+    .nav-button,
+    .page-button {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.85rem;
+        min-width: 36px;
+    }
+
+    .page-info {
+        font-size: 0.85rem;
+        padding: 0 0.5rem;
+    }
+
+    .metadata-popup {
+        width: 95%;
+        max-width: 95%;
+        padding: 1rem;
+        margin: 1rem auto;
+        max-height: 90vh;
+    }
+
+    .metadata-popup-header h2 {
+        font-size: 1.25rem;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .app-header h1 {
+        font-size: 1.25rem;
+    }
+
+    .app-header .subtitle {
+        font-size: 0.8rem;
+    }
+
+    .tei-viewer-container {
+        max-height: calc(100vh - 100px);
+    }
+
+    .viewer-content {
+        display: flex;
+        flex-direction: column;
+        padding: 0.25rem;
+        gap: 0.25rem;
+        height: calc(100vh - 160px);
+    }
+
+    .splitter {
+        display: none;
+    }
+
+    .image-panel {
+        flex: 0 0 auto;
+        height: 25vh;
+        min-height: 180px;
+        max-height: 35vh;
+        width: 100%;
+        order: 1;
+    }
+
+    .text-panels {
+        gap: 0.25rem;
+        flex: 1 1 auto;
+        order: 2;
+        overflow: auto;
+        width: 100%;
+        grid-column: unset;
+    }
+
+    .text-panel {
+        padding: 0.5rem;
+    }
+
+    .text-panel h3 {
+        font-size: 0.95rem;
+    }
+
+    .controls-panel {
+        padding: 0.5rem;
+    }
+
+    .view-toggles button,
+    .image-controls button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+        min-width: 70px;
+    }
+
+    .legend-panel {
+        padding: 0.5rem;
+        margin: 0.25rem;
+    }
+
+    .legend-panel h3 {
+        font-size: 0.9rem;
+    }
+
+    .legend-label {
+        font-size: 0.8rem;
+    }
+
+    .line {
+        padding: 0.4rem;
+    }
+
+    .line-number {
+        font-size: 0.75rem;
+    }
+
+    .line-content {
+        font-size: 0.9rem;
+    }
+
+    .nav-button,
+    .page-button {
+        padding: 0.35rem 0.6rem;
+        font-size: 0.8rem;
+        min-width: 32px;
+    }
+
+    .page-info {
+        font-size: 0.8rem;
+    }
+
+    .abbreviation,
+    .correction,
+    .regularised,
+    .number,
+    .person-name,
+    .place-name,
+    .ref,
+    .unclear {
+        padding: 1px 3px;
     }
 }
 
