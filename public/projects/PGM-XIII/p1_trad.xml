@@ -462,9 +462,7 @@
         <lb facs="#z_tr_1_tl_6" n="3" />
         <ab>
           Un libro sagrado llamado "La mónada" u "Octavo libro de
-          <persName type="person">Moisés</persName>
-          "
-        </ab>
+          <persName type="person">Moisés</persName>"</ab>
         <lb facs="#z_tr_1_tl_7" n="4" />
         <ab>acerca del Nombre Santo.        Contiene lo siguiente:</ab>
         <lb facs="#z_tr_1_tl_8" n="5" />
@@ -502,10 +500,8 @@
                     >4</ref> inciensos</ab>
         <lb facs="#z_tr_1_tl_19" n="16" />
         <ab>
-          en su libro sagrado, llamado "
-          <ref type="libro" target="#desconocido">El Ala</ref>
-          "):  1) De 
-        </ab>
+          en su libro sagrado, llamado
+          <ref type="libro" target="#desconocido">"El Ala"</ref>):  1) De </ab>
         <lb facs="#z_tr_1_tl_20" n="17" />
         <ab>
           <persName type="divinidad">Cronos</persName>
@@ -574,10 +570,10 @@
         <lb facs="#z_tr_1_tl_32" n="28" />
         <ab>séquelas a la sombra y téngalas listas para</ab>
         <lb facs="#z_tr_1_tl_33" n="29" />
-        <ab>aquel día. Pero primero, encomiéndese en</ab>
+        <ab>aquel día. Pero primero, encomiéndese</ab>
         <lb facs="#z_tr_1_tl_34" n="30" />
         <ab
-                >algún día a los dioses acordes a la naturaleza de las horas del día bajo la luna nueva,</ab>
+                >algún día a los dioses acordes a la naturaleza de las horas del día en una luna nueva bajo el Dios,</ab>
         <lb facs="#z_tr_1_tl_35" n="31" />
         <ab>
           correspondencia que tiene usted en '
@@ -598,8 +594,10 @@
         <lb facs="#z_tr_1_tl_40" n="36" />
         <ab>
           que tiene en
-          <ref type="libro" target="#desconocido">'la Llave'</ref>
-           , así como el de aquel que los comanda, y la lista
+          <ref
+                        type="libro"
+                        target="#desconocido"
+                    >'la Llave'</ref>, así como el de aquel que los comanda, y la lista
         </ab>
         <lb facs="#z_tr_1_tl_41" n="37" />
         <ab
@@ -622,7 +620,7 @@
                         target="#note9"
                     >9</ref>. Pues el cocodrilo con rostro de halcón</ab>
         <lb facs="#z_tr_1_tl_47" n="43" />
-        <ab>de halcón saluda al Dios en los cuatro cambios [del año]<ref
+        <ab>saluda al Dios en los cuatro cambios [del año]<ref
                         type="note"
                         target="#note10"
                     >10</ref> </ab>
@@ -667,7 +665,7 @@
         </note>
         <note xml:id="note9" n="9">
           <p
-                    >Betz(1986) en su nota a este segmento indica que el cocodrilo con cabeza de halcón aparece en inscripciones en una combinación de los dioses Sebek y horus. Sobre el eneamorfo, nos aclara que se trata de una combinación de nueve dioses que conforman el cuerpo de un solo Dios.</p>
+                    >Betz(1986) en su nota a este segmento indica que el cocodrilo con cabeza de halcón aparece en inscripciones como una unión de los dioses Sebek y Horus. Acerca del Eneamorfo, nos aclara que se trata de una combinación de nueve dioses que conforman el cuerpo de un solo Dios.</p>
         </note>
         <note xml:id="note10" n="10">
           <p>Es decir, los dos solsticios y los dos equinoccios.</p>
