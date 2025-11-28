@@ -660,6 +660,10 @@ function __wbg_get_imports() {
         getDataViewMemory0().setInt32(arg0 + 4 * 1, len1, true);
         getDataViewMemory0().setInt32(arg0 + 4 * 0, ptr1, true);
     }, arguments) };
+    imports.wbg.__wbg_pointerId_e2ed3a97cf912a58 = function(arg0) {
+        const ret = arg0.pointerId;
+        return ret;
+    };
     imports.wbg.__wbg_preventDefault_1f362670ce7ef430 = function(arg0) {
         arg0.preventDefault();
     };
@@ -674,6 +678,9 @@ function __wbg_get_imports() {
     imports.wbg.__wbg_queueMicrotask_9d76cacb20c84d58 = function(arg0) {
         queueMicrotask(arg0);
     };
+    imports.wbg.__wbg_releasePointerCapture_c6072f4842664fb2 = function() { return handleError(function (arg0, arg1) {
+        arg0.releasePointerCapture(arg1);
+    }, arguments) };
     imports.wbg.__wbg_removeAttribute_993c4bef8df6e74d = function() { return handleError(function (arg0, arg1, arg2) {
         arg0.removeAttribute(getStringFromWasm0(arg1, arg2));
     }, arguments) };
@@ -715,6 +722,9 @@ function __wbg_get_imports() {
     };
     imports.wbg.__wbg_setAttribute_9bad76f39609daac = function() { return handleError(function (arg0, arg1, arg2, arg3, arg4) {
         arg0.setAttribute(getStringFromWasm0(arg1, arg2), getStringFromWasm0(arg3, arg4));
+    }, arguments) };
+    imports.wbg.__wbg_setPointerCapture_eacdec372262597f = function() { return handleError(function (arg0, arg1) {
+        arg0.setPointerCapture(arg1);
     }, arguments) };
     imports.wbg.__wbg_setProperty_7b188d7e71d4aca8 = function() { return handleError(function (arg0, arg1, arg2, arg3, arg4) {
         arg0.setProperty(getStringFromWasm0(arg1, arg2), getStringFromWasm0(arg3, arg4));
@@ -860,18 +870,18 @@ function __wbg_get_imports() {
         const ret = getStringFromWasm0(arg0, arg1);
         return ret;
     };
-    imports.wbg.__wbindgen_cast_5e88cd8307c92705 = function(arg0, arg1) {
-        // Cast intrinsic for `Closure(Closure { dtor_idx: 320, function: Function { arguments: [Ref(NamedExternref("Event"))], shim_idx: 321, ret: Unit, inner_ret: Some(Unit) }, mutable: false }) -> Externref`.
+    imports.wbg.__wbindgen_cast_801f67bbf56c25eb = function(arg0, arg1) {
+        // Cast intrinsic for `Closure(Closure { dtor_idx: 348, function: Function { arguments: [Ref(NamedExternref("Event"))], shim_idx: 349, ret: Unit, inner_ret: Some(Unit) }, mutable: false }) -> Externref`.
         const ret = makeClosure(arg0, arg1, wasm.wasm_bindgen__closure__destroy__hd161816001b2b55a, wasm_bindgen__convert__closures________invoke__haf19f7398e7f77b6);
         return ret;
     };
-    imports.wbg.__wbindgen_cast_cf2b35e87ff37b10 = function(arg0, arg1) {
-        // Cast intrinsic for `Closure(Closure { dtor_idx: 404, function: Function { arguments: [Externref], shim_idx: 405, ret: Unit, inner_ret: Some(Unit) }, mutable: true }) -> Externref`.
+    imports.wbg.__wbindgen_cast_878a9170ed4959ff = function(arg0, arg1) {
+        // Cast intrinsic for `Closure(Closure { dtor_idx: 432, function: Function { arguments: [Externref], shim_idx: 433, ret: Unit, inner_ret: Some(Unit) }, mutable: true }) -> Externref`.
         const ret = makeMutClosure(arg0, arg1, wasm.wasm_bindgen__closure__destroy__h89f7009ccbfa0eb1, wasm_bindgen__convert__closures_____invoke__h931ee5bea952e64b);
         return ret;
     };
-    imports.wbg.__wbindgen_cast_ecd9d05dd11fdb66 = function(arg0, arg1) {
-        // Cast intrinsic for `Closure(Closure { dtor_idx: 123, function: Function { arguments: [NamedExternref("MouseEvent")], shim_idx: 179, ret: Unit, inner_ret: Some(Unit) }, mutable: true }) -> Externref`.
+    imports.wbg.__wbindgen_cast_cda41d77fb40f074 = function(arg0, arg1) {
+        // Cast intrinsic for `Closure(Closure { dtor_idx: 139, function: Function { arguments: [NamedExternref("MouseEvent")], shim_idx: 195, ret: Unit, inner_ret: Some(Unit) }, mutable: true }) -> Externref`.
         const ret = makeMutClosure(arg0, arg1, wasm.wasm_bindgen__closure__destroy__hd7bf36b38fb66e9b, wasm_bindgen__convert__closures_____invoke__h9ce6a0e787c434be);
         return ret;
     };
