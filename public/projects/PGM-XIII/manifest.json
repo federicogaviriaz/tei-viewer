@@ -63,8 +63,8 @@
     {
       "number": 7,
       "label": "Page 7",
-      "has_diplomatic": false,
-      "has_translation": false,
+      "has_diplomatic": true,
+      "has_translation": true,
       "has_image": true
     },
     {
