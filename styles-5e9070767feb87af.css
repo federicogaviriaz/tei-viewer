@@ -23,13 +23,53 @@ html {
     text-size-adjust: 100%;
 }
 
+/* Unicode fallback fonts with specific character ranges */
+@font-face {
+    font-family: "Byzantine Fallback";
+    src:
+        local("Noto Music"), local("Segoe UI Historic"),
+        local("Segoe UI Symbol");
+    unicode-range: U+1D000-U+1D0FF; /* Byzantine Musical Symbols */
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Kayah Fallback";
+    src:
+        local("Noto Sans Symbols 2"), local("Segoe UI Symbol"),
+        local("Arial Unicode MS");
+    unicode-range: U+11AC0-U+11AFF; /* Kayah Li */
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "General Unicode Fallback";
+    src:
+        local("Noto Sans Symbols 2"), local("Segoe UI Symbol"),
+        local("Arial Unicode MS");
+    unicode-range:
+        U+2000-U+2FFF,
+        U+A000-U+AFFF,
+        U+F000-U+FFFF; /* Various Unicode blocks */
+    font-display: swap;
+}
+
+/* Optional utility class for forcing Unicode fallbacks when needed */
+.ensure-unicode {
+    font-family:
+        "Byzantine Fallback", "Kayah Fallback", "General Unicode Fallback",
+        "SGr Iosevka", sans-serif;
+}
+
 body {
     font-family:
-        "Noto Sans",
         "SGr Iosevka",
-        "Noto Sans Symbols",
-        "Noto Sans Symbols 2",
-        -apple-system,
+        /* Your primary font - renders everything it supports */
+        "Byzantine Fallback",
+        /* Only loads for 𝀺 and similar */ "Kayah Fallback",
+        /* Only loads for ᪺ and similar */ "General Unicode Fallback",
+        /* Other rare symbols */ "Noto Sans",
+        /* General fallback */ -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
         Roboto,
@@ -1631,6 +1671,210 @@ body {
 [title]:hover::after {
     white-space: pre-wrap;
     max-width: 400px;
+}
+
+/* ============================================
+   COMMENTARY POPUP STYLES
+   ============================================ */
+
+/* Commentary popup overlay - similar to metadata popup but larger */
+.commentary-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.commentary-popup {
+    background: #22304a;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    width: 85%;
+    height: 85%;
+    max-width: 1200px;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #3a8dde;
+}
+
+.commentary-popup-header {
+    background-color: #18223a;
+    color: #eaf6fb;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #3a8dde;
+}
+
+.commentary-popup-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.commentary-popup .close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.commentary-popup .close-btn:hover {
+    background-color: #3a8dde;
+}
+
+.commentary-popup-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0;
+}
+
+.commentary-html-content {
+    padding: 2rem;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #eaf6fb;
+    background-color: #22304a;
+}
+
+.commentary-html-content h1,
+.commentary-html-content h2,
+.commentary-html-content h3,
+.commentary-html-content h4,
+.commentary-html-content h5,
+.commentary-html-content h6 {
+    color: #bcdfff;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.commentary-html-content h1 {
+    font-size: 2rem;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+}
+
+.commentary-html-content h2 {
+    font-size: 1.5rem;
+}
+
+.commentary-html-content h3 {
+    font-size: 1.25rem;
+}
+
+.commentary-html-content p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.commentary-html-content blockquote {
+    border-left: 4px solid #3498db;
+    margin: 1rem 0;
+    padding-left: 1rem;
+    font-style: italic;
+    color: #bcdfff;
+    background-color: #18223a;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.commentary-html-content ul,
+.commentary-html-content ol {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+}
+
+.commentary-html-content li {
+    margin-bottom: 0.5rem;
+}
+
+.commentary-html-content a {
+    color: #4fc3f7;
+    text-decoration: none;
+}
+
+.commentary-html-content a:hover {
+    text-decoration: underline;
+}
+
+.commentary-html-content code {
+    background-color: #18223a;
+    color: #4fc3f7;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: "Courier New", monospace;
+    border: 1px solid #3a8dde;
+}
+
+.commentary-html-content pre {
+    background-color: #18223a;
+    color: #eaf6fb;
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 1rem 0;
+    border: 1px solid #3a8dde;
+}
+
+/* Responsive styles for commentary popup */
+@media (max-width: 768px) {
+    .commentary-popup {
+        width: 95%;
+        height: 90%;
+    }
+
+    .commentary-html-content {
+        padding: 1rem;
+    }
+
+    .commentary-popup-header {
+        padding: 0.75rem;
+    }
+
+    .commentary-popup-header h2 {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .commentary-popup {
+        width: 98%;
+        height: 95%;
+    }
+
+    .commentary-html-content {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .commentary-popup-header {
+        padding: 0.5rem;
+    }
+}
+
+/* Fallback message styling for when no commentary exists */
+.sin-comentario {
+    text-align: center;
+    font-style: italic;
+    color: #bcdfff !important;
+    font-size: 1.2rem !important;
+    margin: 3rem 0 !important;
+    padding: 2rem !important;
+    background-color: #18223a !important;
+    border: 2px dashed #3a8dde !important;
+    border-radius: 8px !important;
 }
 
 /* ============================================

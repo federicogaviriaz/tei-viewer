@@ -11,9 +11,9 @@
 
         <!-- Trunk build tool directives -->
         
-<script type="module" nonce="y91e5cwyaOMDIfZZWq1lqw==">
-import init, * as bindings from '/tei-viewer/tei-viewer-385d28c8d1e23e1a.js';
-const wasm = await init({ module_or_path: '/tei-viewer/tei-viewer-385d28c8d1e23e1a_bg.wasm' });
+<script type="module" nonce="PiNI6nTlPgkgYlbP2pXtzA==">
+import init, * as bindings from '/tei-viewer/tei-viewer-a93c65580608fc86.js';
+const wasm = await init({ module_or_path: '/tei-viewer/tei-viewer-a93c65580608fc86_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -22,7 +22,7 @@ window.wasmBindings = bindings;
 dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
 
 </script>
-        <link rel="stylesheet" href="/tei-viewer/styles-5a21234694771795.css" integrity="sha384&#x2D;Jy0mlZp87WJdHsZlmmCKAkQebPZBB1bHhuljCXy8V5S4XcW9lbTofxNGvRcazor8"/>
+        <link rel="stylesheet" href="/tei-viewer/styles-5e9070767feb87af.css" integrity="sha384&#x2D;WdEiyRyYE&#x2B;FxIkTOkG4sf3JPTPQfYFNO1k1TObAC15O1g5LO5DHU1Z&#x2B;FVGLx8ThM"/>
         <link rel="stylesheet" href="/tei-viewer/iosevka-4b2e30e1aeb1b5e3.css" integrity="sha384&#x2D;LkGcKL5YJspMf0s8pU51YHbKOTFxnf1HoLdn66BwJX057OMkR&#x2B;ql5osdMvX56RBB"/>
         
         
@@ -32,6 +32,16 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Gentium+Plus:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Enhanced Unicode support -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Music&display=swap"
             rel="stylesheet"
         />
 
@@ -80,7 +90,7 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
                 pointer-events: none;
             }
         </style>
-    <link rel="modulepreload" href="/tei-viewer/tei-viewer-385d28c8d1e23e1a.js" crossorigin=anonymous integrity="sha384-30FcGn6go9TVbEM93wpEciwJpsbEqhDpYvjo2glU36DcntI15H4apxUqgj8GwiDV"><link rel="preload" href="/tei-viewer/tei-viewer-385d28c8d1e23e1a_bg.wasm" crossorigin=anonymous integrity="sha384-Jee8K8Q1hX3/KYRfFlbbFmAfbanYQZ00pT5oZd8SfGFswL86j9Q+3XzrXGtkn/Zq" as="fetch" type="application/wasm"></head>
+    <link rel="modulepreload" href="/tei-viewer/tei-viewer-a93c65580608fc86.js" crossorigin=anonymous integrity="sha384-ZvkfdnYaUhrD9bWlxKB/0/W7DEnsOyM3Ad64PlXR439uM6cb/BQ3xkSHWkTAz/fM"><link rel="preload" href="/tei-viewer/tei-viewer-a93c65580608fc86_bg.wasm" crossorigin=anonymous integrity="sha384-Yp2Bo5hiFQ3Nb3X06c2SzzGFSKuaLG9trlDnG09RV/RE62AO6zs3308SdrGicb5a" as="fetch" type="application/wasm"></head>
     <body>
         <!-- Loading screen -->
         <div id="loading-screen">
