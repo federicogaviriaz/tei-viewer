@@ -20,175 +20,175 @@
   "pages": [
     {
       "number": 1,
-      "label": "Page 1",
+      "label": "Página 1",
       "has_diplomatic": true,
       "has_translation": true,
       "has_image": true
     },
     {
       "number": 2,
-      "label": "Page 2",
-      "has_diplomatic": false,
-      "has_translation": false,
+      "label": "Página 2",
+      "has_diplomatic": true,
+      "has_translation": true,
       "has_image": true
     },
     {
       "number": 3,
-      "label": "Page 3",
+      "label": "Página 3",
       "has_diplomatic": false,
       "has_translation": false,
       "has_image": true
     },
     {
       "number": 4,
-      "label": "Page 4",
+      "label": "Página 4",
       "has_diplomatic": false,
       "has_translation": false,
       "has_image": true
     },
     {
       "number": 5,
-      "label": "Page 5",
+      "label": "Página 5",
       "has_diplomatic": false,
       "has_translation": false,
       "has_image": true
     },
     {
       "number": 6,
-      "label": "Page 6",
+      "label": "Página 6",
       "has_diplomatic": false,
       "has_translation": false,
       "has_image": true
     },
     {
       "number": 7,
-      "label": "Page 7",
+      "label": "Página 7",
       "has_diplomatic": true,
       "has_translation": true,
       "has_image": true
     },
     {
       "number": 8,
-      "label": "Page 8",
+      "label": "Página 8",
       "has_diplomatic": true,
       "has_translation": true,
       "has_image": true
     },
     {
       "number": 9,
-      "label": "Page 9",
+      "label": "Página 9",
       "has_diplomatic": false,
       "has_translation": false,
       "has_image": true
     },
     {
       "number": 10,
-      "label": "Page 10",
+      "label": "Página 10",
       "has_diplomatic": false,
       "has_translation": false,
       "has_image": true
     },
     {
       "number": 11,
-      "label": "Page 11",
+      "label": "Página 11",
       "has_diplomatic": false,
       "has_translation": false,
       "has_image": true
     },
     {
       "number": 12,
-      "label": "Page 12",
+      "label": "Página 12",
       "has_diplomatic": false,
       "has_translation": false,
       "has_image": true
     },
     {
       "number": 13,
-      "label": "Page 13",
+      "label": "Página 13",
       "has_diplomatic": false,
       "has_translation": false,
       "has_image": true
     },
     {
       "number": 14,
-      "label": "Page 14",
+      "label": "Página 14",
       "has_diplomatic": false,
       "has_translation": false,
       "has_image": true
     },
     {
       "number": 15,
-      "label": "Page 15",
+      "label": "Página 15",
       "has_diplomatic": false,
       "has_translation": false,
       "has_image": true
     },
     {
       "number": 16,
-      "label": "Page 16",
+      "label": "Página 16",
       "has_diplomatic": false,
       "has_translation": false,
       "has_image": true
     },
     {
       "number": 17,
-      "label": "Page 17",
+      "label": "Página 17",
       "has_diplomatic": false,
       "has_translation": false,
       "has_image": true
     },
     {
       "number": 18,
-      "label": "Page 18",
+      "label": "Página 18",
       "has_diplomatic": false,
       "has_translation": false,
       "has_image": true
     },
     {
       "number": 19,
-      "label": "Page 19",
+      "label": "Página 19",
       "has_diplomatic": false,
       "has_translation": false,
       "has_image": true
     },
     {
       "number": 20,
-      "label": "Page 20",
+      "label": "Página 20",
       "has_diplomatic": false,
       "has_translation": false,
       "has_image": true
     },
     {
       "number": 21,
-      "label": "Page 21",
+      "label": "Página 21",
       "has_diplomatic": false,
       "has_translation": false,
       "has_image": true
     },
     {
       "number": 22,
-      "label": "Page 22",
+      "label": "Página 22",
       "has_diplomatic": false,
       "has_translation": false,
       "has_image": true
     },
     {
       "number": 23,
-      "label": "Page 23",
+      "label": "Página 23",
       "has_diplomatic": false,
       "has_translation": false,
       "has_image": true
     },
     {
       "number": 24,
-      "label": "Page 24",
+      "label": "Página 24",
       "has_diplomatic": false,
       "has_translation": false,
       "has_image": true
     },
     {
       "number": 25,
-      "label": "Page 25",
+      "label": "Página 25",
       "has_diplomatic": false,
       "has_translation": false,
       "has_image": true
